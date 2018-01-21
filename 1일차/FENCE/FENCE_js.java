@@ -3,27 +3,29 @@ import java.util.Scanner;
 public class FENCE {
 	
 	private static int T;
-	private static String[] fence;
+	private static int[] fence;
 	private static int index;
 	private static int max;
+	private static int width;
 
+	
 	public static void main(String[] args) {
 		
-		String temp;
 		Scanner sc = new Scanner(System.in);
 		
 		T = sc.nextInt();
-		sc.nextLine();
 		
 		for(int t = 0 ; t < T ; t++ ) {
 			
 			int result;
-			temp = sc.nextLine();
 			max = Integer.MIN_VALUE;
 			index = 0;
-			temp = sc.nextLine();
-			fence = temp.split(" ");
+			width = sc.nextInt();
+			fence = new int[width];
 			
+			for(int i = 0 ; i < width; i++ ) {
+				fence[i] = sc.nextInt();
+			}
 			for(int i = 0 ; i < fence.length ; i++ ) {
 				result = findMaxArea();
 				index++;
@@ -42,21 +44,21 @@ public class FENCE {
 		
 		if(index - 1 >= 0 || index + 1 < fence.length) {
 			for(int i = index - 1 ; i >= 0 ; i --) {
-				if(Integer.parseInt(fence[index]) <= Integer.parseInt(fence[i])) {
-					result += Integer.parseInt(fence[index]);
+				if(fence[index] <= fence[i]) {
+					result += fence[index];
 				} else {
 					break;
 				}
 			}
 			for(int i = index + 1 ; i < fence.length ; i++ ) {
-				if(Integer.parseInt(fence[index]) <= Integer.parseInt(fence[i])) {
-					result += Integer.parseInt(fence[index]);
+				if(fence[index] <= fence[i]) {
+					result += fence[index];
 				} else {
 					break;
 				}
 
 			}
-			result += Integer.parseInt(fence[index]);
+			result += fence[index];
 		}
 		
 		return result;
