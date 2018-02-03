@@ -28,7 +28,7 @@ public class SUSHI {
 					if(i-price[j][0]>=0) {
 						if(pref[i] < pref[i-price[j][0]]+price[j][1]) {
 							pref[i] = pref[i-price[j][0]]+price[j][1];
-							//System.out.println(pref[i]);
+							max = Math.max(pref[i], max);
 						}
 					}
 					
@@ -36,9 +36,7 @@ public class SUSHI {
 				}
 				
 			}
-			for(int i = 0 ; i < temp ; i++ ) {
-				max = Math.max(pref[i], max);
-			}
+	
 			System.out.println(max);
 		}
 		sc.close();
