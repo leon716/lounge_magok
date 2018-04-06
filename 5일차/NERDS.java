@@ -37,8 +37,13 @@ public class NERDS {
 		}
 
 	}
+	
+	private static boolean isPolygonCrossed() {
+		return false;
+		
+	}
 
-	private static boolean isCrossed() {
+	private static boolean isLineCrossed() {
 		
 		return false;
 		
@@ -46,13 +51,24 @@ public class NERDS {
 	
 	private static List<Point> findConvexHull(List<Point> dots){
 		List<Point> convexHull = new ArrayList<>();
-		
-		
-		
+		if(dots.size()<=3) {
+			convexHull.addAll( dots );
+			return convexHull;
+		}
+		for(Point p : dots) {
+			
+		}
+					
 		return convexHull;
 	}
 	
-	private static double findAngle(Point startingPoing, Point mostLeftPoint, Point compareingPoint) {
+	private static Point findMostLeftPoint(Point startingPoint) {
+		return startingPoint;
+		
+		
+	}
+	
+	private static double findAngle(Point startingPoint, Point mostLeftPoint, Point compareingPoint) {
 		
 		
 		return 0;
